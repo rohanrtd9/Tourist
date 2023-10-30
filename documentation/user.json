@@ -1,0 +1,84 @@
+{
+  "status": 200,
+  "message": "Authentication Successfull",
+  "name": "ROHAN .",
+  "sapID": 11003977,
+  "authorizationAreas": [
+    {
+      "area": {
+        "office": {
+          "uID": "0000001036",
+          "name": "UPPCL",
+          "type": "ORGANIZATION",
+          "status": "ACTIVE"
+        },
+        "role": {
+          "displayName": "REPORT USER",
+          "uID": "0001583",
+          "role": "REPORT",
+          "canGenerateReport": true,
+          "canFeedInputEnergy": false,
+          "canImportData": false,
+          "canFeedUserWiseEnergy": false,
+          "canSetDates": false,
+          "status": "ACTIVE",
+          "canUploadDiscomData": false,
+          "canApproveDelete": false,
+          "canFinalizeDelete": false,
+          "canInitiateDelete": false
+        }
+      }
+    },
+    {
+      "area": {
+        "office": {
+          "uID": "0000001036",
+          "name": "UPPCL",
+          "type": "ORGANIZATION",
+          "status": "ACTIVE"
+        },
+        "app": "CST0004",
+        "role": {
+          "displayName": "ADMIN",
+          "uID": "0013472",
+          "role": "UPPCL_ADMIN_UPPCL",
+          "canGenerateReport": true,
+          "canFeedInputEnergy": false,
+          "canImportData": true,
+          "canFeedUserWiseEnergy": false,
+          "canSetDates": true,
+          "status": "ACTIVE",
+          "canUploadDiscomData": false,
+          "canApproveDelete": false,
+          "canFinalizeDelete": true,
+          "canInitiateDelete": false
+        }
+      }
+    }
+  ],
+  "token": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJzYXBJRCI6MTEwMDM5NzcsInR5cGUiOiJPRkZJQ0VSIiwiaWF0IjoxNjk4NjQ3ODc0LCJleHAiOjE3MDY0MjM4NzQsImF1ZCI6Ik9GRklDRVIiLCJpc3MiOiJVUFBDTCIsInN1YiI6IlNTTyJ9.Ghhu_tDD9MaeqA2ncF-o1PkRB8ApampQsybNuLpI6LWEk_1KCaVCurjjOaHOmh32Cv-0qx5IKFv1aYVu2kSfMpAaazeI_kV2aUsLF6qSJd9lO8i_gJ1LvUFtRoF2UqdehD_Q8ofzSr0O243NSbouGQY360Nlf_iz7bP0P1ElgHW7DF0cUZKPQMazM_B5JOWKWSbiDwjGu1R3HihcdEX6Ul229fjszzjmCyQOXez7NnGqGet5LqRXf2jS4swj4jaoHvoTRo4ABh7SBYjFFXikL93ONkbEnZbSa7BG0xsu8B381HHs4j7WQCNwwDt1veMQ6nRXxEomBUtlACDwoOFDPg",
+  "role": {
+    "office": {
+      "uID": "0000001036",
+      "name": "UPPCL",
+      "type": "ORGANIZATION",
+      "status": "ACTIVE"
+    },
+    "app": "CST0004",
+    "role": {
+      "displayName": "ADMIN",
+      "uID": "0013472",
+      "role": "UPPCL_ADMIN_UPPCL",
+      "canGenerateReport": true,
+      "canFeedInputEnergy": false,
+      "canImportData": true,
+      "canFeedUserWiseEnergy": false,
+      "canSetDates": true,
+      "status": "ACTIVE",
+      "canUploadDiscomData": false,
+      "canApproveDelete": false,
+      "canFinalizeDelete": true,
+      "canInitiateDelete": false
+    }
+  }
+}
