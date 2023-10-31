@@ -1,23 +1,23 @@
 
-<div class="mt-8 flex flex-col items-center justify-center">
-    <div class="max-w-md w-full space-y-8">
+<div class="flex items-center justify-center h-[calc(100vh-60px)]  ">
+    <div class="space-y-12 shadow-md bg-gray-100 rounded-md">
       <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
           Select a Role
         </h2>
       </div>
-      <div class="rounded-md flex flex-row justify-center items-center">
+      <div class=" flex flex-wrap justify-center items-center mx-2 px-4">
         <!-- Loop through the authorization areas and display roles -->
-        <ng-container *ngFor="let authArea of userData.authorizationAreas">
-          <div class="m-2">
-            <div class="mt-1">
+        <ng-container *ngFor="let authArea of userData.authorizationAreas ">
+          <div class="m-2 ">
+            
               <button
                 (click)="roleSelect(authArea.area.role)"
-                class="group relative flex justify-center items-center w-64 h-24 py-2 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                class="flex justify-center items-center  py-2 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md custom-button"
               >
                 {{ authArea.area.role.displayName }}
               </button>
-            </div>
+            
           </div>
         </ng-container>
       </div>

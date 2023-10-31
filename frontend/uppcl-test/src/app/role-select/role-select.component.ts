@@ -85,7 +85,7 @@ export class RoleSelectComponent {
     } else {
       // Route to user component
       // Replace 'user-route' with your actual route for the user component
-      this.router.navigate(['../user']);
+      this.router.navigate(['../user/available']);
     }
   }
 }

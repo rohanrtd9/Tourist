@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-
+  componentType: string = 'available';
+  toggleComponent(type: string) {
+    this.componentType = type;
+  }
 }

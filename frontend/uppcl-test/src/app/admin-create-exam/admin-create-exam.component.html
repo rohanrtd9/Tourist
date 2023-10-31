@@ -1,0 +1,69 @@
+<div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md mt-4">
+    <form class="w-full max-w-lg">
+      <div class="mb-4 grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="examName">
+            Exam Name
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="examName" type="text" placeholder="Exam Name"
+          >
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="startDate">
+            Exam Start Date
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="startDate" type="date"
+          >
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="endDate">
+            Exam End Date
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="endDate" type="date"
+          >
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="duration">
+            Duration
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="duration" type="text" placeholder="Duration"
+          >
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="marksPerQuestion">
+            Marks per Question
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="marksPerQuestion" type="number" placeholder="Marks per Question" value="10"
+          >
+        </div>
+        <div>
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="jsonFile">
+            JSON for Questions, Answers, and Right Answer
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            id="jsonFile" type="file"
+          >
+        </div>
+      </div>
+      <div class="flex items-center justify-center mt-6">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+        >
+          Create Exam
+        </button>
+      </div>
+    </form>
+  </div>
+  
