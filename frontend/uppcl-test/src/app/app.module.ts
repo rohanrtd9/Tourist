@@ -12,7 +12,14 @@ import { AvailableExamsComponent } from './available-exams/available-exams.compo
 import { AllExamComponent } from './all-exam/all-exam.component';
 import { AdminCreateExamComponent } from './admin-create-exam/admin-create-exam.component';
 import { AdminViewResultsComponent } from './admin-view-results/admin-view-results.component';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../../src/environment/environment';
+import { AdminModifyExamComponent } from './admin-modify-exam/admin-modify-exam.component';
+import { AdminExamResultComponent } from './admin-exam-result/admin-exam-result.component';
+import { ExamLiveComponent } from './exam-live/exam-live.component';
+import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
+import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +33,18 @@ import { AdminViewResultsComponent } from './admin-view-results/admin-view-resul
     AllExamComponent,
     AdminCreateExamComponent,
     AdminViewResultsComponent,
+    AdminModifyExamComponent,
+    AdminExamResultComponent,
+    ExamLiveComponent,
+    ExamInstructionsComponent,
+    ExamNavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

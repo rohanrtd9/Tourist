@@ -27,4 +27,9 @@ export class AvailableExamsComponent {
     },
     // Add more available exam data
   ];
+  startExam() {
+    if (window.confirm("Do you want to start the exam?")) {
+        window.location.href = '/exam/instructions';
+    }
+}
 }

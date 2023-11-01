@@ -81,7 +81,7 @@ export class RoleSelectComponent {
     if (role.uID == "0013472") {
       // Route to admin component
       // Replace 'admin-route' with your actual route for the admin component
-      this.router.navigate(['../admin']);
+      this.router.navigate(['../admin/modify']);
     } else {
       // Route to user component
       // Replace 'user-route' with your actual route for the user component

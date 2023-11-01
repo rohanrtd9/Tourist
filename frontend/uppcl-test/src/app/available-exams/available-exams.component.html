@@ -17,7 +17,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ exam.startDate }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ exam.endDate }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Attempt</button>
+                <button (click)="startExam()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Attempt</button>
                 </td>
             </tr>
             </tbody>

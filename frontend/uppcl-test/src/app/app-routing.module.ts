@@ -7,6 +7,11 @@ import { AvailableExamsComponent } from './available-exams/available-exams.compo
 import { SidebarUserComponent } from './sidebar-user/sidebar-user.component';
 import { AllExamComponent } from './all-exam/all-exam.component';
 import { AdminCreateExamComponent } from './admin-create-exam/admin-create-exam.component';
+import { AdminModifyExamComponent } from './admin-modify-exam/admin-modify-exam.component';
+import { AdminExamResultComponent } from './admin-exam-result/admin-exam-result.component';
+import { ExamLiveComponent } from './exam-live/exam-live.component';
+import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
+import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
 
 const routes: Routes = [
 
@@ -16,7 +21,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent,
       children: [
         { path: 'create', component: AdminCreateExamComponent },
-        { path: 'all', component: AllExamComponent },
+        { path: 'modify', component: AdminModifyExamComponent },
+        { path: 'result', component: AdminExamResultComponent },
       ]
   },
   { path: 'user', 
@@ -24,6 +30,12 @@ const routes: Routes = [
       children: [
         { path: 'available', component: AvailableExamsComponent },
         { path: 'all', component: AllExamComponent },
+      ]},
+      { path: 'exam', 
+      component: ExamNavbarComponent,
+      children: [
+        { path: 'instructions', component: ExamInstructionsComponent },
+        { path: 'live', component: ExamLiveComponent },
       ]},
   { path: 'availExam', component: AvailableExamsComponent},
   // Add a wildcard route for all other requests
