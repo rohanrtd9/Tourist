@@ -1,2 +1,31 @@
-ok
+<div class="flex items-center justify-around  h-[calc(100vh-160px)] mx-10">
+    <div class="w-3/5 bg-gray-100  items-center text-left mx-10">
+      <h2 class="mx-10 my-5">{{ currentQuestion }}</h2>
+  
+      <div>
+        <div *ngFor="let idx of answerOrder" class="flex flex-col mx-10" style="width: 200px;">
+          <button
+            (click)="saveAnswer(currentAnswers[idx].answer_id)"
+            class="bg-white-500 hover:bg-green-700 text-black-400 font py-2 px-4 rounded text-left"
+          >
+            {{ currentAnswers[idx].answer_text }}
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-row justify-around my-5">
+        <button
+          (click)="previousQuestion()"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Previous
+        </button>
+        <button
+          (click)="nextQuestion()"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
   
