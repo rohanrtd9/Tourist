@@ -7,7 +7,11 @@
       <p class="mb-2">4. 1/4 mark will be deducted for each wrong answer.</p>
       <p class="mb-2">5. Once the exam is started, it must be completed.</p>
       <div class="mt-4">
-        <button (click)="startExam()"class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Start Exam</button>
+        <button (click)="cancelExam()"class="bg-red-500 hover:bg-red-700 text-white font-bold m-4 py-2 px-4 rounded">Cancel</button>
+        <button (click)="startExam()"class="bg-blue-500 hover:bg-blue-700 text-white font-bold m-4 py-2 px-4 rounded">Start Exam</button>
+
+      
       </div>
+      {{examData.id}}
     </div>
   </div>

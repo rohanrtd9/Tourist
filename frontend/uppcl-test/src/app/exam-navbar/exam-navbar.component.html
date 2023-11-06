@@ -5,9 +5,19 @@
       </div>
       <div>
         <button class="bg-black-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-          90:00 Minutes
+          {{examData.duration}}
         </button>
       </div>
     </div>
   </nav>
-  <router-outlet></router-outlet>
+  <ng-container *ngIf="examData; else errorTemplate">
+    <router-outlet></router-outlet>
+  </ng-container>
+  
+  <ng-template #errorTemplate>
+    <div class="flex justify-center items-center h-[calc(100vh-72px)]">
+      <div class="bg-red-200 text-red-700  text-2xl rounded-lg p-6">
+        Technical error occurred. Please logout and try again.
+      </div>
+    </div>
+  </ng-template>

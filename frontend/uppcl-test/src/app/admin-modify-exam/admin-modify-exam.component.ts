@@ -16,7 +16,7 @@ export class AdminModifyExamComponent {
   ngOnInit(){
     this.itemsSubscription = this.firebaseService.getItems().subscribe((data) => {
       this.examsData = data; // Assuming your data is an array, modify this as per your data structure
-      console.log(this.examsData); // This will log the retrieved data
+
     });
   }
   showExamDetailModal(questions: any): void {

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FirebaseService } from '../firebase.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import arrayShuffle from 'array-shuffle';
 
 @Component({
   selector: 'app-available-exams',
@@ -6,30 +10,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./available-exams.component.css']
 })
 export class AvailableExamsComponent {
-  availableExams = [
-    {
-      examDate: '2023-11-10',
-      marks: 100,
-      startDate: '2023-11-01',
-      endDate: '2023-11-09'
-    },
-    {
-      examDate: '2023-11-12',
-      marks: 100,
-      startDate: '2023-11-01',
-      endDate: '2023-11-09'
-    },
-    {
-      examDate: '2023-11-13',
-      marks: 90,
-      startDate: '2023-11-01',
-      endDate: '2023-11-09'
-    },
-    // Add more available exam data
-  ];
-  startExam() {
+  itemsSubscription: Subscription | undefined;
+  examsData: any;
+  
+  constructor(private firebaseService: FirebaseService,private router: Router) 
+  {}
+  ngOnInit(){
+    this.itemsSubscription = this.firebaseService.getItems().subscribe((data) => {
+      this.examsData = data; // Assuming your data is an array, modify this as per your data structure
+
+    });
+  }
+  startExam(exam:any) {
+    console.log(exam)
     if (window.confirm("Do you want to start the exam?")) {
-        window.location.href = '/exam/instructions';
+      localStorage.setItem('examData',  JSON.stringify(exam));
+      localStorage.setItem('questionOrder',  JSON.stringify(arrayShuffle([0 ,1, 2, 3, 4, 5, 6, 7, 8, 9])));
+      localStorage.setItem('answerOrder',  JSON.stringify(arrayShuffle([0 ,1, 2, 3])));
+      
+
+        this.router.navigate(['/exam/instructions']);
     }
 }
 }

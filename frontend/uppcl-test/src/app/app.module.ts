@@ -21,6 +21,7 @@ import { ExamLiveComponent } from './exam-live/exam-live.component';
 import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
 import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

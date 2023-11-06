@@ -3,21 +3,21 @@
         <table class="min-w-full divide-y divide-gray-200 p-8">
             <thead class="bg-gray-50">
             <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exam Date</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Marks</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exam Name</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End Date</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-            <tr *ngFor="let exam of availableExams">
-                <td class="px-6 py-4 whitespace-nowrap">{{ exam.examDate }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ exam.marks }}</td>
+            <tr *ngFor="let exam of examsData">
+                <td class="px-6 py-4 whitespace-nowrap">{{ exam.examName }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ exam.startDate }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ exam.endDate }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ exam.duration }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                <button (click)="startExam()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Attempt</button>
+                <button (click)="startExam(exam)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Attempt</button>
                 </td>
             </tr>
             </tbody>
