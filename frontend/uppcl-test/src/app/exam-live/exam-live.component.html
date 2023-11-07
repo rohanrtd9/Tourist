@@ -28,4 +28,13 @@
       </div>
     </div>
   </div>
-  
+  <div class="flex items-center justify-around"><div *ngFor="let item of quizData; let i = index">
+    <button
+      class="rounded bg-gray-300 mt-2 py-2 px-4"
+      [ngClass]="{ 'bg-purple-500': item.visited }"
+      (click)="onItemClicked(i)"
+    >
+      {{ item.question_id }}
+    </button>
+  </div>
+</div>

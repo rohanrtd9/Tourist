@@ -62,4 +62,7 @@ export class ExamLiveComponent {
   saveAnswer(answerId: number): void {
     this.answerOrder[this.currentQuestionIndex] = answerId; // Save the answer order in local storage
   }
+  onItemClicked(index: number) {
+    this.quizData[index].visited = true; // Assuming the 'visited' property exists in each item of the quizData array
+  }
 }
