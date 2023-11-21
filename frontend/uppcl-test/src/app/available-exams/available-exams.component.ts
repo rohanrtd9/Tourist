@@ -29,7 +29,7 @@ export class AvailableExamsComponent {
       localStorage.setItem('answerOrder',  JSON.stringify(arrayShuffle([0 ,1, 2, 3])));
       
 
-        this.router.navigate(['/exam/instructions']);
+        this.router.navigate(['/exam']);
     }
 }
 }

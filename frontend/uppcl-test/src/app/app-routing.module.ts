@@ -12,6 +12,7 @@ import { AdminExamResultComponent } from './admin-exam-result/admin-exam-result.
 import { ExamLiveComponent } from './exam-live/exam-live.component';
 import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
 import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
+import { ExamAlreadyAttemptedComponent } from './exam-already-attempted/exam-already-attempted.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,7 @@ const routes: Routes = [
       children: [
         { path: 'instructions', component: ExamInstructionsComponent },
         { path: 'live', component: ExamLiveComponent },
+        { path: 'attempted', component: ExamAlreadyAttemptedComponent }
       ]},
   { path: 'availExam', component: AvailableExamsComponent},
   // Add a wildcard route for all other requests

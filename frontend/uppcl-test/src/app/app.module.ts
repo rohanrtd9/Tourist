@@ -20,6 +20,7 @@ import { AdminExamResultComponent } from './admin-exam-result/admin-exam-result.
 import { ExamLiveComponent } from './exam-live/exam-live.component';
 import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
 import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
+import { ExamAlreadyAttemptedComponent } from './exam-already-attempted/exam-already-attempted.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
     ExamLiveComponent,
     ExamInstructionsComponent,
     ExamNavbarComponent,
+    ExamAlreadyAttemptedComponent,
   ],
   imports: [
     BrowserModule,

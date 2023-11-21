@@ -1,40 +1,51 @@
-<div class="flex items-center justify-around  h-[calc(100vh-160px)] mx-10">
-    <div class="w-3/5 bg-gray-100  items-center text-left mx-10">
+<div class="flex items-center justify-around  flex-wrap  my-10">
+    <div class="w-screen sm:w-3/5 bg-gray-100  items-center text-left mx-10">
       <h2 class="mx-10 my-5">{{ currentQuestion }}</h2>
   
       <div>
         <div *ngFor="let idx of answerOrder" class="flex flex-col mx-10" style="width: 200px;">
           <button
-            (click)="saveAnswer(currentAnswers[idx].answer_id)"
+            (click)="saveAnswer(currentAnswers[idx].answer_id,idx)"
             class="bg-white-500 hover:bg-green-700 text-black-400 font py-2 px-4 rounded text-left"
+            [ngClass]="{ 'bg-green-400': currentAnswers[idx].chosen}"
           >
             {{ currentAnswers[idx].answer_text }}
           </button>
         </div>
       </div>
-      <div class="flex flex-row justify-around my-5">
-        <button
-          (click)="previousQuestion()"
-          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Previous
-        </button>
-        <button
-          (click)="nextQuestion()"
-          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Next
-        </button>
-      </div>
+      
+    </div>
+    <div class="w-screen sm:w-3/5  flex flex-row justify-around my-5">
+      <button
+        (click)="previousQuestion()"
+        class="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded"
+      >
+        Previous
+      </button>
+      <button
+        (click)="clearAnswer()"
+        class="bg-gray-500 hover:bg-red-900 text-white  py-2 px-4 rounded"
+      >
+        Clear Response
+      </button>
+      <button
+        (click)="nextQuestion()"
+        class="bg-gray-500 hover:bg-gray-700 text-white  py-2 px-4 rounded"
+      >
+        Next
+      </button>
+    </div>
+    <div class=" w-screen sm:w-3/5 flex items-center justify-around flex-wrap m-2">
+      <div *ngFor="let item of quizData; let i = index">
+      <button
+        class="rounded bg-gray-300 mt-2 py-2 px-4 mx-2 text-xs"
+        [ngClass]="{ 'bg-amber-400': item.active,'bg-green-300': item.visited }"
+        (click)="onItemClicked(i)"
+      >
+        
+          {{ i+1}}<i *ngIf="item.answered" class="fa-solid fa-check mx-2"></i>
+      </button>
     </div>
   </div>
-  <div class="flex items-center justify-around"><div *ngFor="let item of quizData; let i = index">
-    <button
-      class="rounded bg-gray-300 mt-2 py-2 px-4"
-      [ngClass]="{ 'bg-purple-500': item.visited }"
-      (click)="onItemClicked(i)"
-    >
-      {{ item.question_id }}
-    </button>
   </div>
-</div>
+  

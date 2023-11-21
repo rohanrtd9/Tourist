@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ExamAttemptService } from '../exam-attempt.service';
+import { CountdownTimerService } from '../exam-countdown.service';
 
 
 @Component({
@@ -9,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ExamInstructionsComponent {
   examData: any;
-  constructor(private router: Router){
+  constructor(private attempt:ExamAttemptService,private router: Router,
+    private countdownTimerService: CountdownTimerService,){
     this.examData = localStorage.getItem('examData');
     console.log(this.examData)
   }
@@ -26,7 +29,8 @@ export class ExamInstructionsComponent {
   startExam() {
     
     if (window.confirm("Do you want to start the exam?")) {
-        window.location.href = '/exam/live';
+      
+      this.router.navigate(['/exam/live']);
     }
   }
   cancelExam()
