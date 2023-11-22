@@ -11,29 +11,33 @@ export class CountdownTimerService {
   countdown$ = this.countdownSource.asObservable();
   private timerCompleteSource = new Subject<void>();
   timerComplete$ = this.timerCompleteSource.asObservable();
-  private duration: number=0;
+  private readonly storageKey = 'countdown_timer';
+  private duration: number=1800;
 
   initDuration(duration: number): void {
     this.duration = duration;
+    localStorage.setItem(this.storageKey, JSON.stringify({ duration, remainingTime: duration }));
     this.countdownSource.next(duration);
   }
 
   startTimer(): void {
-    timer(0, 1000)
-      .pipe(
-        takeUntil(timer(this.duration * 1000 + 1000)),
-        map((value) => this.duration - value - 1)
-      )
-      .subscribe(
-        (remainingTime) => {
-          this.countdownSource.next(remainingTime);
-        },
-        () => {},
-        () => {
+    const timerId = setInterval(() => {
+      const storedData = localStorage.getItem(this.storageKey);
+      if (storedData) {
+        const { remainingTime } = JSON.parse(storedData);
+        if (remainingTime > 0) {
+          localStorage.setItem(this.storageKey, JSON.stringify({ duration: this.duration, remainingTime: remainingTime - 1 }));
+          this.countdownSource.next(remainingTime - 1);
+        } else {
+          clearInterval(timerId);
           this.timerCompleteSource.next();
         }
-      );
+      }
+    }, 1000);
   }
-
+  startTimerFromTime(duration: number): void {
+    this.initDuration(duration);
+    this.startTimer();
+  }
   // Add other methods as needed
 }

@@ -13,8 +13,17 @@ export class ExamInstructionsComponent {
   examData: any;
   constructor(private attempt:ExamAttemptService,private router: Router,
     private countdownTimerService: CountdownTimerService,){
-    this.examData = localStorage.getItem('examData');
+      const storedObjectX = localStorage.getItem('userExamAttempt');
+    if (storedObjectX) {
+      this.countdownTimerService.startTimer();
+      this.router.navigate(['/exam/live']);
+    }
+    else{
+      this.examData = localStorage.getItem('examData');
+    this.countdownTimerService.initDuration(100);
     console.log(this.examData)
+    }
+    
   }
   ngOnInit()
   {
@@ -29,7 +38,7 @@ export class ExamInstructionsComponent {
   startExam() {
     
     if (window.confirm("Do you want to start the exam?")) {
-      
+      this.countdownTimerService.startTimer();
       this.router.navigate(['/exam/live']);
     }
   }

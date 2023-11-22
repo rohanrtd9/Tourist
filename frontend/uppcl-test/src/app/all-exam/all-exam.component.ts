@@ -1,27 +1,26 @@
 import { Component } from '@angular/core';
-
+import { ExamAttemptService } from '../exam-attempt.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 @Component({
   selector: 'app-all-exam',
   templateUrl: './all-exam.component.html',
   styleUrls: ['./all-exam.component.css']
 })
 export class AllExamComponent {
-  attemptedExams = [
-    {
-      attemptDate: '2023-11-10',
-      marks: 100,
-      marksObtained: 80,
-    },
-    {
-      attemptDate: '2023-11-12',
-      marks: 100,
-      marksObtained: 90,
-    },
-    {
-      attemptDate: '2023-11-13',
-      marks: 90,
-      marksObtained: 70,
-    },
-    // Add more available exam data
-  ];
+  examAttemptData: any; 
+  userDetails:any;
+  itemsSubscription: Subscription | undefined;
+  constructor(private attempt:ExamAttemptService)
+  {
+    const storedObject = localStorage.getItem('userDetails');
+    if (storedObject) {
+    this.userDetails=JSON.parse(storedObject);
+    console.log(this.userDetails)
+    }
+    
+    this.itemsSubscription = this.attempt.getItemBySapId(this.userDetails.sapid).subscribe((data) => {
+      this.examAttemptData = data; // Assuming your data is an array, modify this as per your data structure
+      
+    });
+  }
 }

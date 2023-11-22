@@ -39,7 +39,7 @@
       <div *ngFor="let item of quizData; let i = index">
       <button
         class="rounded bg-gray-300 mt-2 py-2 px-4 mx-2 text-xs"
-        [ngClass]="{ 'bg-amber-400': item.active,'bg-green-300': item.visited }"
+        [ngClass]="{ 'bg-yellow-400': item.active,'bg-green-300': item.visited }"
         (click)="onItemClicked(i)"
       >
         

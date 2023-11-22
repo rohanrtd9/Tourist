@@ -1,0 +1,60 @@
+<!-- user-details.component.html -->
+<app-navbar></app-navbar>
+<div class="max-w-md mx-auto mt-4 p-6 bg-white rounded-md shadow-md">
+    <h2 class="text-xl font-bold mb-4">Examinee Details Details</h2>
+    <form (ngSubmit)="enterExam()" #userForm="ngForm">
+        <div class="flex  mb-2 ">
+            <label for="username" class="block text-sm font-medium text-gray-600 w-1/4">Zone</label>
+            <input type="text" id="zone" name="zone" [(ngModel)]="user.zone" required
+                   class="mt-1 p-2 w-full border rounded-md w-3/4">
+          </div>
+          <div class="flex mb-2">
+            <label for="username" class="block text-sm font-medium text-gray-600 w-1/4">Circle</label>
+            <input type="text" id="circle" name="circle" [(ngModel)]="user.circle" required
+                   class="mt-1 p-2 w-full border rounded-md w-3/4">
+          </div>
+          <div class="flex mb-2">
+            <label for="username" class="block text-sm font-medium text-gray-600 w-1/4">Division</label>
+            <input type="text" id="division" name="division" [(ngModel)]="user.division" required
+                   class="mt-1 p-2 w-full border rounded-md w-3/4">
+          </div>
+      <div class=" flex mb-2">
+        <label for="username" class="block text-sm font-medium text-gray-600 w-1/4">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" required
+               class="mt-1 p-2 w-full border rounded-md w-3/4">
+      </div>
+  
+      <div class="flex mb-2">
+        <label for="designation" class="block text-sm font-medium text-gray-600 w-1/4">Designation</label>
+        <input type="text" id="designation" name="designation" [(ngModel)]="user.designation" required
+               class="mt-1 p-2 w-full border rounded-md w-3/4">
+      </div>
+  
+       <!-- SAP ID validation -->
+    <div class="flex mb-2">
+        <label for="sapid" class="block text-sm font-medium text-gray-600 w-1/4">SAP ID</label>
+        <input type="text" id="sapid" name="sapid" [(ngModel)]="user.sapid" required
+               class="mt-1 p-2 w-full border rounded-md w-3/4" [class.border-red-500]="!isSapIdValid() && userForm.submitted">
+        <div *ngIf="userForm.submitted && !isSapIdValid()" class="text-red-500 text-sm mt-1">
+          SAP ID must be between 7 and 8 digits.
+        </div>
+      </div>
+  
+      <div class="flex mb-2">
+        <label for="phoneNumber" class="block text-sm font-medium text-gray-600 w-1/4">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="user.phoneNumber" required
+               class="mt-1 p-2 w-full border rounded-md w-3/4" [class.border-red-500]="!isPhoneNumberValid() && userForm.submitted">
+        <div *ngIf="userForm.submitted && !isPhoneNumberValid()" class="text-red-500 text-sm mt-1">
+          Phone number must be 10 digits.
+        </div>
+      </div>
+  
+      <div class="mt-2">
+        <button type="submit" [disabled]="!userForm.form.valid"
+        class="px-4 py-2 rounded-md
+        {{ !userForm.form.valid ? 'bg-gray-400 text-gray-700 cursor-not-allowed' : 'bg-blue-500 text-white' }}">Start Exam
+        </button>
+      </div>
+    </form>
+  </div>
+  

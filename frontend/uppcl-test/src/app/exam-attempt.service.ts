@@ -50,6 +50,18 @@ export class ExamAttemptService {
     // Retrieve the data as an Observable
     return collectionRef.valueChanges();
   }
+  getItemBySapId(sapId: string): Observable<any[]> {
+    // Assuming you have a collection named 'yourCollectionName' in your Firestore
+    // Adjust this based on your Firestore structure
+
+    // Create a reference to the collection
+    const collectionRef = this.afs.collection('exams_attempt', ref =>
+      ref.where('SapId', '==', sapId)
+    );
+
+    // Retrieve the data as an Observable
+    return collectionRef.valueChanges();
+  }
   
   
 }

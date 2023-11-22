@@ -1,1 +1,23 @@
-<p>exam-already-attempted works!</p>
+<!-- attempted-exam.component.html -->
+
+<div class="w-4/5 container mx-auto my-8">
+    <h2 class="text-3xl font-bold mb-4 text-center">You have already attempted this exam</h2>
+  
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b text-left">Sap ID</th>
+          <th class="py-2 px-4 border-b text-left">Attempted Exam ID</th>
+          <th class="py-2 px-4 border-b text-left">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attempt of examAttemptData">
+          <td class="py-2 px-4 border-b">{{ attempt.SapId }}</td>
+          <td class="py-2 px-4 border-b">{{ attempt.AttemptedExamId }}</td>
+          <td class="py-2 px-4 border-b">{{ attempt.Date | date:'medium' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

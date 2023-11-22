@@ -13,12 +13,16 @@ import { ExamLiveComponent } from './exam-live/exam-live.component';
 import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
 import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
 import { ExamAlreadyAttemptedComponent } from './exam-already-attempted/exam-already-attempted.component';
+import { AdminAuthComponent } from './admin-auth/admin-auth.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
 
 
   { path: '', redirectTo: '/roleSelect', pathMatch: 'full' }, // Redirect to login
   { path: 'roleSelect', component: RoleSelectComponent },
+  { path: 'auth', component: AdminAuthComponent },
+  { path: 'details', component: UserDetailsComponent },
   { path: 'admin', component: AdminComponent,
       children: [
         { path: 'create', component: AdminCreateExamComponent },

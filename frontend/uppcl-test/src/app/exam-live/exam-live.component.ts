@@ -17,32 +17,48 @@ export class ExamLiveComponent {
   quizData:any;
   currentQuestion: any = {};
   currentAnswers:any = {};
+  userExamAttemptVar = {
+    username: '',
+    designation: '',
+    sapid: '',
+    phoneNumber: '',
+    zone:'',
+    circle:'',
+    division:'',
+    examData:'',
+
+
+  };
 
 
   constructor(private attempt:ExamAttemptService) {
-    var examMeta:any={};
-      examMeta["AttemptedExamId"]="Hn5kvGUSq1CvsZscJ8no"
-      examMeta["SapId"]="11003977"
-      console.log(this.attempt.getItemBySapIdExamId("11003977","Hn5kvGUSq1CvsZscJ8no"));
-   
-    const storedObject = localStorage.getItem('examData');
+
+    const storedObjectX = localStorage.getItem('userExamAttempt');
+    if (storedObjectX) {
+      const parsedData=JSON.parse(storedObjectX)
+      this.examData = parsedData.examData;
+      this.quizData=this.examData.questions;
+    }
+    else{
+      
+      const storedObject = localStorage.getItem('examData');
     if (storedObject) {
       this.examData = JSON.parse(storedObject);
+      this.userExamAttemptVar.examData=this.examData;
+      localStorage.setItem('userExamAttempt',  JSON.stringify(this.userExamAttemptVar));
       this.quizData=this.examData.questions;
       //console.log(this.examData); // Use the retrievedObject as needed in your application
-      const storedObject1 = localStorage.getItem('questionOrder');
+    }
+    }
+    
+    const storedObject1 = localStorage.getItem('questionOrder');
       if (storedObject1) {
         this.questionOrder = JSON.parse(storedObject1);
-        this.quizData=this.examData.questions;
         this.onItemClicked(this.currentQuestionIndex);
-        // Use the retrievedObject as needed in your application
       }
-      
-    }
     const storedObject2 = localStorage.getItem('answerOrder');
     if (storedObject2) {
       this.answerOrder = JSON.parse(storedObject2);
-      //console.log(this.answerOrder); 
     }
     
   }
@@ -70,7 +86,9 @@ export class ExamLiveComponent {
 
     this.quizData[this.questionOrder[this.currentQuestionIndex]].answers[idx].chosen= true;
     this.quizData[this.questionOrder[this.currentQuestionIndex]].given_answer_id=answer
-    console.log(this.quizData)
+    console.log(this.examData)
+    this.userExamAttemptVar.examData=this.examData;
+      localStorage.setItem('userExamAttempt',  JSON.stringify(this.userExamAttemptVar));
      // Save the answer order in local storage
   }
   clearAnswer()
@@ -78,6 +96,8 @@ export class ExamLiveComponent {
     this.quizData[this.currentQuestionIndex].answered = false;
     this.quizData[this.questionOrder[this.currentQuestionIndex]].answers.forEach((answer: { chosen: boolean; }) => answer.chosen = false);
     this.quizData[this.questionOrder[this.currentQuestionIndex]].given_answer_id=null
+    this.userExamAttemptVar.examData=this.examData;
+      localStorage.setItem('userExamAttempt',  JSON.stringify(this.userExamAttemptVar));
   }
   onItemClicked(index: number) {
     

@@ -21,6 +21,8 @@ import { ExamLiveComponent } from './exam-live/exam-live.component';
 import { ExamInstructionsComponent } from './exam-instructions/exam-instructions.component';
 import { ExamNavbarComponent } from './exam-navbar/exam-navbar.component';
 import { ExamAlreadyAttemptedComponent } from './exam-already-attempted/exam-already-attempted.component';
+import { AdminAuthComponent } from './admin-auth/admin-auth.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { ExamAlreadyAttemptedComponent } from './exam-already-attempted/exam-alr
     ExamInstructionsComponent,
     ExamNavbarComponent,
     ExamAlreadyAttemptedComponent,
+    AdminAuthComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,

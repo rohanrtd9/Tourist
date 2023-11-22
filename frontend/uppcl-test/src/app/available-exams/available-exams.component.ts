@@ -12,9 +12,15 @@ import arrayShuffle from 'array-shuffle';
 export class AvailableExamsComponent {
   itemsSubscription: Subscription | undefined;
   examsData: any;
+  userDetails:any;
   
   constructor(private firebaseService: FirebaseService,private router: Router) 
-  {}
+  {
+    const storedObject = localStorage.getItem('userDetails');
+    if (storedObject) {
+      this.userDetails = JSON.parse(storedObject);
+    }
+  }
   ngOnInit(){
     this.itemsSubscription = this.firebaseService.getItems().subscribe((data) => {
       this.examsData = data; // Assuming your data is an array, modify this as per your data structure

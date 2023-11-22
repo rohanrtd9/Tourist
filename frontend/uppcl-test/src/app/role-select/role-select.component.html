@@ -8,14 +8,14 @@
       </div>
       <div class=" flex flex-wrap justify-center items-center mx-2 px-4">
         <!-- Loop through the authorization areas and display roles -->
-        <ng-container *ngFor="let authArea of userData.authorizationAreas ">
+        <ng-container *ngFor="let authArea of userData ">
           <div class="m-2 ">
             
               <button
-                (click)="roleSelect(authArea.area.role)"
+                (click)="roleSelect(authArea.role)"
                 class="flex justify-center items-center  py-2 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md custom-button"
               >
-                {{ authArea.area.role.displayName }}
+                {{ authArea.role }}
               </button>
             
           </div>

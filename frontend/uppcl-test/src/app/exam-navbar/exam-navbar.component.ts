@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { FirebaseService } from '../firebase.service';
 import { ExamAttemptService } from '../exam-attempt.service';
 import { Router } from '@angular/router';
+import { CountdownTimerService } from '../exam-countdown.service';
 
 @Component({
   selector: 'app-exam-navbar',
@@ -13,7 +14,8 @@ export class ExamNavbarComponent {
   examData: any | undefined;
   itemsSubscription: Subscription | undefined;
   examAttemptData: any;
-  constructor(private attempExams: ExamAttemptService,private router: Router) {
+  remainingTime: number=0;
+  constructor(private attempExams: ExamAttemptService,private router: Router,private countdown:CountdownTimerService) {
    
     const storedObject = localStorage.getItem('examData');
     if (storedObject) {
@@ -28,10 +30,30 @@ export class ExamNavbarComponent {
         }
         else
         {
-          this.router.navigate(['/exam/attempted'])
+          this.router.navigate(['/exam/attempted'], { queryParams: { data: JSON.stringify(this.examAttemptData) } });
         }
       });
       
     }
+  }
+  ngOnInit(): void {
+    //this.countdown.initDuration(1800);
+    
+    this.countdown.countdown$.subscribe((remainingTime) => {
+      this.remainingTime = remainingTime;
+    });
+  }
+  submitExam()
+  {
+    if (window.confirm("Do you want to finish attempt and end the exam?")) {
+      console.log("yes")
+    const storedObject = localStorage.getItem('userExamAttempt');
+    if (storedObject) {
+    this.attempExams.addItem(JSON.parse(storedObject));
+    }
+    localStorage.removeItem('userExamAttempt');
+    this.router.navigate(['/user/all'])
+    }
+    
   }
 }
